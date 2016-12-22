@@ -1014,60 +1014,155 @@ body .markdown-body
     page-break-after: avoid;
   }
 }
+</style><style>/*github*/
+.codehilite {background-color:#fff;color:#333333;}
+.codehilite .hll {background-color:#ffffcc;}
+.codehilite .c{color:#999988;font-style:italic}
+.codehilite .err{color:#a61717;background-color:#e3d2d2}
+.codehilite .k{font-weight:bold}
+.codehilite .o{font-weight:bold}
+.codehilite .cm{color:#999988;font-style:italic}
+.codehilite .cp{color:#999999;font-weight:bold}
+.codehilite .c1{color:#999988;font-style:italic}
+.codehilite .cs{color:#999999;font-weight:bold;font-style:italic}
+.codehilite .gd{color:#000000;background-color:#ffdddd}
+.codehilite .ge{font-style:italic}
+.codehilite .gr{color:#aa0000}
+.codehilite .gh{color:#999999}
+.codehilite .gi{color:#000000;background-color:#ddffdd}
+.codehilite .go{color:#888888}
+.codehilite .gp{color:#555555}
+.codehilite .gs{font-weight:bold}
+.codehilite .gu{color:#800080;font-weight:bold}
+.codehilite .gt{color:#aa0000}
+.codehilite .kc{font-weight:bold}
+.codehilite .kd{font-weight:bold}
+.codehilite .kn{font-weight:bold}
+.codehilite .kp{font-weight:bold}
+.codehilite .kr{font-weight:bold}
+.codehilite .kt{color:#445588;font-weight:bold}
+.codehilite .m{color:#009999}
+.codehilite .s{color:#dd1144}
+.codehilite .n{color:#333333}
+.codehilite .na{color:teal}
+.codehilite .nb{color:#0086b3}
+.codehilite .nc{color:#445588;font-weight:bold}
+.codehilite .no{color:teal}
+.codehilite .ni{color:purple}
+.codehilite .ne{color:#990000;font-weight:bold}
+.codehilite .nf{color:#990000;font-weight:bold}
+.codehilite .nn{color:#555555}
+.codehilite .nt{color:navy}
+.codehilite .nv{color:teal}
+.codehilite .ow{font-weight:bold}
+.codehilite .w{color:#bbbbbb}
+.codehilite .mf{color:#009999}
+.codehilite .mh{color:#009999}
+.codehilite .mi{color:#009999}
+.codehilite .mo{color:#009999}
+.codehilite .sb{color:#dd1144}
+.codehilite .sc{color:#dd1144}
+.codehilite .sd{color:#dd1144}
+.codehilite .s2{color:#dd1144}
+.codehilite .se{color:#dd1144}
+.codehilite .sh{color:#dd1144}
+.codehilite .si{color:#dd1144}
+.codehilite .sx{color:#dd1144}
+.codehilite .sr{color:#009926}
+.codehilite .s1{color:#dd1144}
+.codehilite .ss{color:#990073}
+.codehilite .bp{color:#999999}
+.codehilite .vc{color:teal}
+.codehilite .vg{color:teal}
+.codehilite .vi{color:teal}
+.codehilite .il{color:#009999}
+.codehilite .gc{color:#999;background-color:#EAF2F5}
 </style><title>react-native-and-strophe</title></head><body><article class="markdown-body"><div class="toc">
 <ul>
-<li><a href="#react-native-and-strophe-for-real-time-apps">React Native and Strophe for real-time Apps</a><ul>
-<li><a href="#_1">业务场景</a></li>
+<li><a href="#react-native-and-strophe-for-real-time-apps">React Native and Strophe for real-time Apps @ 环信</a><ul>
+<li><a href="#_1">协议</a></li>
 <li><a href="#_2">知识点</a></li>
 <li><a href="#_3">选型</a></li>
 <li><a href="#ide">IDE</a></li>
 <li><a href="#todo-and-flow">Todo and Flow</a></li>
 <li><a href="#android-debug-and-publish">Android debug and publish</a><ul>
 <li><a href="#_4">可能遇到的问题</a><ul>
-<li><a href="#q">Q:模拟器第一可以正常启动，以后均启动失败</a></li>
-<li><a href="#q_1">Q:真机总是安装失败</a></li>
+<li><a href="#q">Q: 模拟器第一可以正常启动，以后均启动失败</a></li>
+<li><a href="#q_1">Q: 真机总是安装失败</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li><a href="#ios-debug-and-publish">IOS debug and publish</a></li>
 <li><a href="#qa">QA</a><ul>
-<li><a href="#qbabel-typeof">Q:babel typeof</a></li>
-<li><a href="#qsocket-vs-websokcet-and-strophe-vs-socket-io">Q:socket vs websokcet and strophe vs socket io</a></li>
-<li><a href="#qreact-native-and-strophe">Q:react native and strophe</a></li>
-<li><a href="#qwhats-protobuf">Q:what&rsquo;s protobuf</a></li>
-<li><a href="#qunable-to-add-a-source-with-url-httpsgithubcomcocoapodsspecsgit-named-master">Q:Unable to add a source with url https://github.com/CocoaPods/Specs.git named master</a></li>
-<li><a href="#qf8app-cfbundleidentifier-does-not-exist">Q:F8app &ldquo;:CFBundleIdentifier&rdquo;, Does Not Exist</a></li>
-<li><a href="#qbuild-process-failed-appdexdebug-failed">Q:Build process failed - :app:dexDebug FAILED</a></li>
-<li><a href="#qandroid">Q:android 版本支持</a></li>
-<li><a href="#qiphone-is-busy-processing-symbol-files">Q:iphone is busy: processing symbol files</a></li>
-<li><a href="#qpch-was-compiled-with-module-cache-path">Q:PCH was compiled with module cache path</a></li>
-<li><a href="#qshadow-in-react-native">Q:shadow in react-native</a></li>
-<li><a href="#qvscode-debug-react-native">Q:vscode debug react native</a></li>
-<li><a href="#qpossible-unhandled-promise-rejection-id0">Q:Possible Unhandled Promise Rejection (id:0)</a></li>
+<li><a href="#q-babel-typeof">Q: babel typeof</a></li>
+<li><a href="#q-socket-vs-websokcet-and-strophe-vs-socket-io">Q: socket vs websokcet and strophe vs socket io</a></li>
+<li><a href="#q-react-native-and-strophe">Q: react native and strophe</a></li>
+<li><a href="#q-whats-protobuf">Q: what&rsquo;s protobuf</a></li>
+<li><a href="#q-unable-to-add-a-source-with-url-httpsgithubcomcocoapodsspecsgit-named-master">Q: Unable to add a source with url https://github.com/CocoaPods/Specs.git named master</a></li>
+<li><a href="#q-f8app-cfbundleidentifier-does-not-exist">Q: F8app &ldquo;:CFBundleIdentifier&rdquo;, Does Not Exist</a></li>
+<li><a href="#q-build-process-failed-appdexdebug-failed">Q: Build process failed - :app:dexDebug FAILED</a></li>
+<li><a href="#q-android">Q: android 版本支持</a></li>
+<li><a href="#q-iphone-is-busy-processing-symbol-files">Q: iphone is busy: processing symbol files</a></li>
+<li><a href="#q-pch-was-compiled-with-module-cache-path">Q: PCH was compiled with module cache path</a></li>
+<li><a href="#q-shadow-in-react-native">Q: shadow in react-native</a></li>
+<li><a href="#q-vscode-debug-react-native">Q: vscode debug react native</a></li>
+<li><a href="#q-possible-unhandled-promise-rejection-id0">Q: Possible Unhandled Promise Rejection (id:0)</a></li>
 <li><a href="#q-redux-usage">Q: redux usage</a></li>
-<li><a href="#qfix">Q:如何实现一个登录页面的，底部fix的布局</a></li>
+<li><a href="#q-fix">Q: 如何实现一个登录页面的，底部fix的布局</a></li>
+<li><a href="#q-ua">Q: ua 是什么</a></li>
+<li><a href="#q-could-not-parse-the-simulator-list-output">Q: Could not parse the simulator list output</a></li>
+<li><a href="#q-error-ignoring-return-value-of-function-declared-with-warn_unused_result-attribute">Q: Error: ignoring return value of function declared with warn_unused_result attribute</a><ul>
+<li><a href="#q-debug-release">Q: debug正常 release 打包失败</a></li>
 </ul>
 </li>
-<li><a href="#state">state</a></li>
+</ul>
+</li>
+<li><a href="#redux-state">Redux State</a></li>
+<li><a href="#_5">知识点</a><ul>
+<li><a href="#listview">ListView</a><ul>
+<li><a href="#scrollview">与ScrollView的区别？</a></li>
+<li><a href="#listview-scrollview-row-ios">ListView -&gt; ScrollView row不居顶部 （ios）</a></li>
+<li><a href="#scrollview-onscroll">ScrollView onScroll</a></li>
+<li><a href="#swipeablelistview">swipeablelistview</a></li>
+</ul>
+</li>
+<li><a href="#buttonjs">Button.js</a><ul>
+<li><a href="#_6">参考</a></li>
+</ul>
+</li>
+<li><a href="#react-native">携程是如何做React Native优化的</a></li>
+<li><a href="#react-native-meetup">react native meetup</a></li>
+<li><a href="#_7">核心概念</a></li>
+<li><a href="#_8">与现有的应用程序集成</a></li>
+<li><a href="#ui">原生UI组件</a></li>
+<li><a href="#react-native_1">在原生和React Native间通信</a></li>
+<li><a href="#proptypes">PropTypes</a></li>
+<li><a href="#axioslibutilsjs">axios/lib/utils.js</a></li>
+<li><a href="#http">http上传文件</a></li>
+<li><a href="#_9">聊天框中图片的自适应，两种方式</a></li>
+<li><a href="#http_1">http上传文件原理</a></li>
+<li><a href="#_10">键盘事件时需要调整页面布局</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 </div>
-<h1 id="react-native-and-strophe-for-real-time-apps"><a name="user-content-react-native-and-strophe-for-real-time-apps" href="#react-native-and-strophe-for-real-time-apps" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>React Native and Strophe for real-time Apps</h1>
-<h2 id="_1"><a name="user-content-_1" href="#_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>业务场景</h2>
-<blockquote>
-<p>im 实时聊天</p>
-</blockquote>
+<h1 id="react-native-and-strophe-for-real-time-apps"><a name="user-content-react-native-and-strophe-for-real-time-apps" href="#react-native-and-strophe-for-real-time-apps" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>React Native and Strophe for real-time Apps @ 环信</h1>
+<h2 id="_1"><a name="user-content-_1" href="#_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>协议</h2>
 <ul>
-<li>rest</li>
-<li>msync<ul>
-<li>protobuf</li>
-<li>基于tcp的socket</li>
+<li>http<ul>
+<li>rest api 主要用户登陆</li>
 </ul>
 </li>
 <li>xmpp<ul>
-<li>websocket</li>
+<li>websocket 用于实时通信部分</li>
+</ul>
+</li>
+<li>msync（此版本不涉及）<ul>
+<li>protobuf</li>
+<li>基于tcp的socket</li>
 </ul>
 </li>
 </ul>
@@ -1091,10 +1186,7 @@ body .markdown-body
 </ul>
 </li>
 <li>demo（了解）<ul>
-<li><a href="https://github.com/infinitered/ignite">ignite</a><ul>
-<li>iPhone6 (ios 8.1) 会crash，启动时需要切换模拟器版本</li>
-</ul>
-</li>
+<li><a href="https://github.com/infinitered/ignite">ignite</a></li>
 <li><a href="http://makeitopen.com/">f8app</a></li>
 <li><a href="https://f8-app.liaohuqiu.net/tutorials/building-the-f8-app/data/">f8app 中文解析</a></li>
 </ul>
@@ -1108,32 +1200,6 @@ body .markdown-body
 <li>debug 工具，提供时间旅行的功能，日志记录（日志可以直接使用native自带的debug工具）</li>
 </ul>
 </li>
-</ul>
-</li>
-<li>模块及自动化<ul>
-<li>npm 发布及本地调试（掌握）<ul>
-<li><a href="http://semver.org/lang/zh-CN/">版本规范</a></li>
-<li><a href="https://www.npmjs.com/package/easemob-websdk">easemob-websdk 模块</a></li>
-<li><a href="http://javascript.ruanyifeng.com/nodejs/npm.html">npm解析 by runyf</a><ul>
-<li>关注link用法</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>webpack（了解）<ul>
-<li><a href="https://webpack.github.io/docs/library-and-externals.html">umd</a></li>
-<li><a href="https://www.npmjs.com/package/webpack-stream">webpack-stream 模块</a></li>
-<li><a href="https://webpack.github.io/docs/usage-with-gulp.html">webpack with gulp</a></li>
-</ul>
-</li>
-<li>gulp（了解）<ul>
-<li><a href="http://www.cnblogs.com/2050/p/4198792.html">用法简介</a></li>
-<li><a href="http://www.gulpjs.com.cn/docs/api/">官方文档</a></li>
-<li><a href="http://www.gulpjs.com.cn/docs/recipes/browserify-uglify-sourcemap/">browserify with gulp</a></li>
-</ul>
-</li>
-<li>bower（了解）</li>
-<li>browserify（了解）</li>
 </ul>
 </li>
 </ul>
@@ -1159,34 +1225,27 @@ body .markdown-body
 </li>
 <li>redux yes<ul>
 <li>代码复用，状态的高效维护 必备</li>
-<li><a href="https://github.com/verekia/js-stack-from-scratch/tree/master/tutorial/10-immutable-redux-improvements">https://github.com/verekia/js-stack-from-scratch/tree/master/tutorial/10-immutable-redux-improvements</a></li>
-<li><a href="http://cn.redux.js.org/docs/advanced/AsyncActions.html">http://cn.redux.js.org/docs/advanced/AsyncActions.html</a></li>
-<li><a href="http://www.jianshu.com/p/3334467e4b32">http://www.jianshu.com/p/3334467e4b32</a></li>
-<li><a href="http://div.io/topic/1309">http://div.io/topic/1309</a></li>
 </ul>
 </li>
-<li>依赖模块<ul>
-<li>redux</li>
-<li>react-redux</li>
-<li>react-native-i18n</li>
-<li>react-native-preseit 持久化 支持native和web</li>
-<li><a href="https://github.com/gaearon/redux-thunk">redux-thunk</a></li>
-<li><a href="https://github.com/evgenyrodionov/redux-logger">redux-logger</a></li>
-<li>flow 考虑到编码习惯和web的兼容性，暂不启用 no</li>
-<li>react-timer-mixin</li>
-</ul>
-</li>
+<li>依赖模块 见<code>package.json</code></li>
 </ul>
 <h2 id="ide"><a name="user-content-ide" href="#ide" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>IDE</h2>
-<ol>
-<li>atom<ul>
-<li>synax: javascript with jsx</li>
+<blockquote>
+<p>建议webstorm，其他ide多少都有性能或功能的问题</p>
+</blockquote>
+<ul>
+<li>webstorm<ul>
+<li>plugin 代码提示<ul>
+<li><a href="https://github.com/virtoolswebplayer/ReactNative-LiveTemplate">ReactNative-LiveTemplate</a></li>
+<li><a href="https://github.com/wix/react-templates">react-templates</a></li>
 </ul>
 </li>
-</ol>
+</ul>
+</li>
+</ul>
 <h2 id="todo-and-flow"><a name="user-content-todo-and-flow" href="#todo-and-flow" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Todo and Flow</h2>
 <ol>
-<li>目录<ul>
+<li>主要目录<ul>
 <li>App<ul>
 <li>Containers 容器 | 页面 | 路由<ul>
 <li>App.js 总入口<ul>
@@ -1196,14 +1255,19 @@ body .markdown-body
 </ul>
 </li>
 <li>RootContainer.js  根容器<ul>
-<li>StatusBar 系统默认状态条</li>
 <li>Navigation/NavigationRouter.js 初始化路由</li>
-<li>/Redux/StartupRedux</li>
 <li>/Config/ReduxPersist 持久化初始化</li>
 </ul>
 </li>
 </ul>
 </li>
+<li>Components 常用组件</li>
+<li>I18n 多语言支持</li>
+<li>Images 图片资源</li>
+<li>Lib WebIM初始化</li>
+<li>Navigation 路由相关</li>
+<li>Redux actions / reducers</li>
+<li>Sdk webim-easemobo SDK</li>
 </ul>
 </li>
 </ul>
@@ -1212,16 +1276,8 @@ body .markdown-body
 <li>zeplin</li>
 </ul>
 </li>
-<li>通信<ul>
-<li>xmpp: im sdk</li>
-<li>http with promise:  fetch 自带</li>
-</ul>
-</li>
 <li>todo<ul>
-<li>未开启debug情况下，locaiton不存在，需要兼容</li>
 <li>https的问题</li>
-<li>window和docu的问题</li>
-<li>link的方式android也会打包失败，所以迁移到项目内部维护  done</li>
 <li>splash 开机过渡动画 no<ul>
 <li><a href="https://github.com/react-native-community/react-native-svg">react-native-svg 背景渐变</a> todo</li>
 <li><a href="https://segmentfault.com/a/1190000004422456">react-native-svg 中文</a> todo</li>
@@ -1233,10 +1289,14 @@ body .markdown-body
 <li>react-native-code-push</li>
 </ul>
 </li>
+<li><a href="https://github.com/marcshilling/react-native-image-picker"><a href="https://github.com/marcshilling/react-native-image-picker"><a href="https://github.com/marcshilling/react-native-image-picker">https://github.com/marcshilling/react-native-image-picker</a></a></a><ul>
+<li>只添加了ios的依赖，android并没有添加</li>
+<li>直接通过xcode编译的debug模式编译是能测试的，但是run-ios无效，即使 react-native link也无效</li>
+</ul>
+</li>
 </ul>
 </li>
 </ol>
-<p>debug 模式下的 ua： <code>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36</code></p>
 <h2 id="android-debug-and-publish"><a name="user-content-android-debug-and-publish" href="#android-debug-and-publish" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Android debug and publish</h2>
 <blockquote>
 <p>项目初始化 <code>$ npm run newclear</code></p>
@@ -1247,13 +1307,14 @@ body .markdown-body
 <ul>
 <li><code>$ brew install android-sdk</code></li>
 </ul>
-<pre><code class="bash">    // zshrc 依照个人环境不同配置
-    export ANDROID_HOME=~/Library/Android/sdk
-    export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
-    export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_112.jdk/Contents/Home/
+<div class="codehilite"><pre>    // zshrc 依照个人环境不同配置
+    <span class="nb">export </span><span class="nv">ANDROID_HOME</span><span class="o">=</span>~/Library/Android/sdk
+    <span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">PATH</span><span class="si">}</span>:<span class="si">${</span><span class="nv">ANDROID_HOME</span><span class="si">}</span>/tools:<span class="si">${</span><span class="nv">ANDROID_HOME</span><span class="si">}</span>/platform-tools
+    <span class="nb">export </span><span class="nv">JAVA_HOME</span><span class="o">=</span>/Library/Java/JavaVirtualMachines/jdk1.8.0_112.jdk/Contents/Home/
     // 配置完成记得
-    source .zshrc
-</code></pre>
+    <span class="nb">source</span> .zshrc
+</pre></div>
+
 
 </li>
 <li>
@@ -1327,27 +1388,27 @@ body .markdown-body
 </li>
 </ol>
 <p>常用命令</p>
-<pre><code class="bash">$ npm start
-$ android
-$ android avd
-$ emulator -avd n4-768
-$ react-native run-android
-$ react-native run-android  --variant=release
-$ npm run android:install
-$ npm run android:build
-$ npm run android:logcat
-$ ./gradlew assembleRelease
-$ ./gradlew installRelease
-$ cd android/app/build/outpus/apk &amp;&amp; adb install app-release.apk
+<div class="codehilite"><pre><span class="nv">$ </span>npm start
+<span class="nv">$ </span>android
+<span class="nv">$ </span>android avd
+<span class="nv">$ </span>emulator -avd n4-768
+<span class="nv">$ </span>react-native run-android
+<span class="nv">$ </span>react-native run-android  --variant<span class="o">=</span>release
+<span class="nv">$ </span>npm run android:install
+<span class="nv">$ </span>npm run android:build
+<span class="nv">$ </span>npm run android:logcat
+<span class="nv">$ </span>./gradlew assembleRelease
+<span class="nv">$ </span>./gradlew installRelease
+<span class="nv">$ </span><span class="nb">cd </span>android/app/build/outpus/apk <span class="o">&amp;&amp;</span> adb install app-release.apk
+</pre></div>
 
-</code></pre>
 
 <p><strong>注：很多快捷命令见根目录 <code>package.json</code> scripts 内容</strong></p>
 <h3 id="_4"><a name="user-content-_4" href="#_4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>可能遇到的问题</h3>
-<h4 id="q"><a name="user-content-q" href="#q" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Q:模拟器第一可以正常启动，以后均启动失败</h4>
-<p>A:删除镜像文件，重新创建，并运行</p>
-<h4 id="q_1"><a name="user-content-q_1" href="#q_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Q:真机总是安装失败</h4>
-<p>A:尝试删除已经安装的app</p>
+<h4 id="q"><a name="user-content-q" href="#q" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Q: 模拟器第一可以正常启动，以后均启动失败</h4>
+<p>A: 删除镜像文件，重新创建，并运行</p>
+<h4 id="q_1"><a name="user-content-q_1" href="#q_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Q: 真机总是安装失败</h4>
+<p>A: 尝试删除已经安装的app</p>
 <ul>
 <li><a href="https://github.com/facebook/react-native/issues/2720">https://github.com/facebook/react-native/issues/2720</a></li>
 </ul>
@@ -1363,9 +1424,13 @@ $ cd android/app/build/outpus/apk &amp;&amp; adb install app-release.apk
 </li>
 <li>模拟器测试<ul>
 <li><code>react-native run-ios --simulator "iPhone 7"</code></li>
+<li><code>cmd + d</code> 调出控制台</li>
+<li><code>cmd + r</code> reload</li>
 </ul>
 </li>
-<li>真机测试<ul>
+<li>
+<p>真机测试</p>
+<ul>
 <li>xcode config<ul>
 <li>Targets -&gt; app -&gt; General -&gt; Signing -&gt;添加一个个人icloud账户</li>
 <li>添加team，并定义一个唯一的Bundle Identifier   如：org.reactjs.native.example.app.lwz<ul>
@@ -1404,16 +1469,24 @@ $ cd android/app/build/outpus/apk &amp;&amp; adb install app-release.apk
 <li>信任证书：ios设备 -&gt; General -&gt; Device Management -&gt;  persion Certificate -&gt; trust it</li>
 <li>成功运行后，如果是debug模式可以晃动手机调出控制台</li>
 </ul>
+<p>如果编译不生效 ，先clean，然后run-ios引入图片</p>
 </li>
 </ol>
 <ul>
 <li><a href="https://github.com/CocoaPods/CocoaPo ds/issues/5531">Signing for requires a development team</a></li>
 <li><a href="https://facebook.github.io/react-native/docs/running-on-device-ios.html">Running On Device</a></li>
 </ul>
+<div class="codehilite"><pre><span class="nv">$ </span>npm start
+<span class="nv">$ </span>react-native run-ios --simulator <span class="s2">&quot;iPhone 7&quot;</span>
+<span class="nv">$ </span>react-native run-ios
+<span class="nv">$ </span>react-native bundle --dev <span class="nb">false</span> --platform ios --entry-file ./index.ios.js --bundle-output ./ios/app/main.jsbundle
+</pre></div>
+
+
 <h2 id="qa"><a name="user-content-qa" href="#qa" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>QA</h2>
-<h3 id="qbabel-typeof"><a name="user-content-qbabel-typeof" href="#qbabel-typeof" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Q:babel typeof</h3>
+<h3 id="q-babel-typeof"><a name="user-content-q-babel-typeof" href="#q-babel-typeof" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Q: babel typeof</h3>
 <p>Debug remote 和 Hot loading 同时开启</p>
-<h3 id="qsocket-vs-websokcet-and-strophe-vs-socket-io"><a name="user-content-qsocket-vs-websokcet-and-strophe-vs-socket-io" href="#qsocket-vs-websokcet-and-strophe-vs-socket-io" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Q:socket vs websokcet and strophe vs socket io</h3>
+<h3 id="q-socket-vs-websokcet-and-strophe-vs-socket-io"><a name="user-content-q-socket-vs-websokcet-and-strophe-vs-socket-io" href="#q-socket-vs-websokcet-and-strophe-vs-socket-io" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Q: socket vs websokcet and strophe vs socket io</h3>
 <ul>
 <li>类库<ul>
 <li>socket io 客户端和服务端均支持<ul>
@@ -1455,34 +1528,36 @@ $ cd android/app/build/outpus/apk &amp;&amp; adb install app-release.apk
 <li><a href="http://www.infoq.com/cn/news/2015/01/socket-io-websocket">Socket.IO：支持WebSocket协议、用于实时通信和跨平台的框架</a></li>
 <li><a href="http://strophe.im/strophejs/doc/1.2.9/files/strophe-js.html">Strophe.js</a></li>
 </ul>
-<h3 id="qreact-native-and-strophe"><a name="user-content-qreact-native-and-strophe" href="#qreact-native-and-strophe" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Q:react native and strophe</h3>
+<h3 id="q-react-native-and-strophe"><a name="user-content-q-react-native-and-strophe" href="#q-react-native-and-strophe" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Q: react native and strophe</h3>
 <blockquote>
 <p>no document / no window ? how to make strophe work</p>
 </blockquote>
-<pre><code class="js">// 解决 strophe 对 DOMParser 的依赖
-window.DOMParser = require('xmldom').DOMParser;å
-// 解决 strophe 对 document 的依赖
-window.document = document = new DOMParser().parseFromString(&quot;&lt;?xml version='1.0'?&gt;&quot;,'text/xml');
-// 引入 strophe 库，顺序不能颠倒
-import Strophe from 'strophe';
-// 连接 strophe, 注意 strophe 绑定到了 window 上面
-new window.Strophe.Connection();
-</code></pre>
+<p>react-native 有全局window，但是不同浏览器端的window，没有document、location等，由于strophe是基于浏览器版本的, 需要自己兼容</p>
+<div class="codehilite"><pre><span class="c1">// 解决 strophe 对 DOMParser 的依赖</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">DOMParser</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;xmldom&#39;</span><span class="p">).</span><span class="nx">DOMParser</span><span class="p">;</span><span class="nx">å</span>
+<span class="c1">// 解决 strophe 对 document 的依赖</span>
+<span class="nb">window</span><span class="p">.</span><span class="nb">document</span> <span class="o">=</span> <span class="nb">document</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DOMParser</span><span class="p">().</span><span class="nx">parseFromString</span><span class="p">(</span><span class="s2">&quot;&lt;?xml version=&#39;1.0&#39;?&gt;&quot;</span><span class="p">,</span><span class="s1">&#39;text/xml&#39;</span><span class="p">);</span>
+<span class="c1">// 引入 strophe 库，顺序不能颠倒</span>
+<span class="kr">import</span> <span class="nx">Strophe</span> <span class="nx">from</span> <span class="s1">&#39;strophe&#39;</span><span class="p">;</span>
+<span class="c1">// 连接 strophe, 注意 strophe 绑定到了 window 上面</span>
+<span class="k">new</span> <span class="nb">window</span><span class="p">.</span><span class="nx">Strophe</span><span class="p">.</span><span class="nx">Connection</span><span class="p">();</span>
+</pre></div>
+
 
 <ul>
 <li><a href="https://github.com/jindw/xmldom">xmldom</a></li>
 <li><a href="https://www.npmjs.com/package/react-native-html-parser">react-native-html-parser</a></li>
 </ul>
-<h3 id="qwhats-protobuf"><a name="user-content-qwhats-protobuf" href="#qwhats-protobuf" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Q:what&rsquo;s protobuf</h3>
+<h3 id="q-whats-protobuf"><a name="user-content-q-whats-protobuf" href="#q-whats-protobuf" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Q: what&rsquo;s protobuf</h3>
 <ul>
 <li><a href="https://www.ibm.com/developerworks/cn/linux/l-cn-gpb/">Google Protocol Buffer 的使用和原理</a></li>
 <li><a href="https://github.com/google/protobuf">Protocol Buffers</a></li>
 </ul>
-<h3 id="qunable-to-add-a-source-with-url-httpsgithubcomcocoapodsspecsgit-named-master"><a name="user-content-qunable-to-add-a-source-with-url-httpsgithubcomcocoapodsspecsgit-named-master" href="#qunable-to-add-a-source-with-url-httpsgithubcomcocoapodsspecsgit-named-master" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Q:Unable to add a source with url <code>https://github.com/CocoaPods/Specs.git</code> named <code>master</code></h3>
+<h3 id="q-unable-to-add-a-source-with-url-httpsgithubcomcocoapodsspecsgit-named-master"><a name="user-content-q-unable-to-add-a-source-with-url-httpsgithubcomcocoapodsspecsgit-named-master" href="#q-unable-to-add-a-source-with-url-httpsgithubcomcocoapodsspecsgit-named-master" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Q: Unable to add a source with url <code>https://github.com/CocoaPods/Specs.git</code> named <code>master</code></h3>
 <ul>
 <li><a href="https://github.com/CocoaPods/CocoaPods/issues/4293">Unable to add a source with url <code>https://github.com/CocoaPods/Specs.git</code> named <code>master</code></a></li>
 </ul>
-<h3 id="qf8app-cfbundleidentifier-does-not-exist"><a name="user-content-qf8app-cfbundleidentifier-does-not-exist" href="#qf8app-cfbundleidentifier-does-not-exist" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Q:F8app &ldquo;:CFBundleIdentifier&rdquo;, Does Not Exist</h3>
+<h3 id="q-f8app-cfbundleidentifier-does-not-exist"><a name="user-content-q-f8app-cfbundleidentifier-does-not-exist" href="#q-f8app-cfbundleidentifier-does-not-exist" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Q: F8app &ldquo;:CFBundleIdentifier&rdquo;, Does Not Exist</h3>
 <ul>
 <li><a href="https://github.com/facebook/react-native/issues/7308">https://github.com/facebook/react-native/issues/7308</a></li>
 </ul>
@@ -1492,17 +1567,17 @@ new window.Strophe.Connection();
 <li>running it with sudo</li>
 <li>updating react-native (I&rsquo;m on the latest version)</li>
 </ol>
-<h3 id="qbuild-process-failed-appdexdebug-failed"><a name="user-content-qbuild-process-failed-appdexdebug-failed" href="#qbuild-process-failed-appdexdebug-failed" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Q:Build process failed - :app:dexDebug FAILED</h3>
+<h3 id="q-build-process-failed-appdexdebug-failed"><a name="user-content-q-build-process-failed-appdexdebug-failed" href="#q-build-process-failed-appdexdebug-failed" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Q: Build process failed - :app:dexDebug FAILED</h3>
 <p><strong>yep. i solved by: cd android/ &amp;&amp; ./gradlew clean &amp;&amp; cd .. &amp;&amp; react-native run-android</strong></p>
 <ul>
 <li><a href="https://github.com/airbnb/react-native-maps/issues/378">https://github.com/airbnb/react-native-maps/issues/378</a></li>
 </ul>
-<h3 id="qandroid"><a name="user-content-qandroid" href="#qandroid" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Q:android 版本支持</h3>
+<h3 id="q-android"><a name="user-content-q-android" href="#q-android" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Q: android 版本支持</h3>
 <p><strong>+Supported operating systems are &gt;= Android 4.1 (API 16) and &gt;= iOS 7.0.</strong></p>
 <ul>
 <li><a href="https://github.com/facebook/react-native/commit/e2841c05b4bc67aad90854c7013b278ca4abe03a">https://github.com/facebook/react-native/commit/e2841c05b4bc67aad90854c7013b278ca4abe03a</a></li>
 </ul>
-<h3 id="qiphone-is-busy-processing-symbol-files"><a name="user-content-qiphone-is-busy-processing-symbol-files" href="#qiphone-is-busy-processing-symbol-files" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Q:iphone is busy: processing symbol files</h3>
+<h3 id="q-iphone-is-busy-processing-symbol-files"><a name="user-content-q-iphone-is-busy-processing-symbol-files" href="#q-iphone-is-busy-processing-symbol-files" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Q: iphone is busy: processing symbol files</h3>
 <ul>
 <li>重启xcode</li>
 <li>
@@ -1512,17 +1587,17 @@ new window.Strophe.Connection();
 <p><a href="http://stackoverflow.com/questions/19187857/processing-symbol-files-in-xcode">http://stackoverflow.com/questions/19187857/processing-symbol-files-in-xcode</a></p>
 </li>
 </ul>
-<h3 id="qpch-was-compiled-with-module-cache-path"><a name="user-content-qpch-was-compiled-with-module-cache-path" href="#qpch-was-compiled-with-module-cache-path" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Q:PCH was compiled with module cache path</h3>
+<h3 id="q-pch-was-compiled-with-module-cache-path"><a name="user-content-q-pch-was-compiled-with-module-cache-path" href="#q-pch-was-compiled-with-module-cache-path" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Q: PCH was compiled with module cache path</h3>
 <p>This is often a caching problem. Usually it can be resolved by holding down the Option key and choosing Product &gt; Clean Build Folder&hellip;</p>
 <p>非 <code>ignite new app</code>方式创建的app， 需要先执行 <code>npm run newclear</code></p>
-<h3 id="qshadow-in-react-native"><a name="user-content-qshadow-in-react-native" href="#qshadow-in-react-native" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Q:shadow in react-native</h3>
+<h3 id="q-shadow-in-react-native"><a name="user-content-q-shadow-in-react-native" href="#q-shadow-in-react-native" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Q: shadow in react-native</h3>
 <p><a href="https://github.com/facebook/react-native/commit/b65f1f223488b52963f80a67bb41956103263d27">https://github.com/facebook/react-native/commit/b65f1f223488b52963f80a67bb41956103263d27</a></p>
 <ul>
 <li>其他厂家问题 <a href="http://reactnative.cn/docs/0.20/known-issues.html">http://reactnative.cn/docs/0.20/known-issues.html</a></li>
 </ul>
-<h3 id="qvscode-debug-react-native"><a name="user-content-qvscode-debug-react-native" href="#qvscode-debug-react-native" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Q:vscode debug react native</h3>
+<h3 id="q-vscode-debug-react-native"><a name="user-content-q-vscode-debug-react-native" href="#q-vscode-debug-react-native" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Q: vscode debug react native</h3>
 <p><a href="https://marketplace.visualstudio.com/items?itemName=vsmobile.vscode-react-native">https://marketplace.visualstudio.com/items?itemName=vsmobile.vscode-react-native</a></p>
-<h3 id="qpossible-unhandled-promise-rejection-id0"><a name="user-content-qpossible-unhandled-promise-rejection-id0" href="#qpossible-unhandled-promise-rejection-id0" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Q:Possible Unhandled Promise Rejection (id:0)</h3>
+<h3 id="q-possible-unhandled-promise-rejection-id0"><a name="user-content-q-possible-unhandled-promise-rejection-id0" href="#q-possible-unhandled-promise-rejection-id0" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Q: Possible Unhandled Promise Rejection (id:0)</h3>
 <ul>
 <li><a href="https://github.com/facebook/react-native/issues/4415">https://github.com/facebook/react-native/issues/4415</a></li>
 <li>
@@ -1547,21 +1622,254 @@ new window.Strophe.Connection();
 <li>** <a href="http://www.jianshu.com/p/3334467e4b32">http://www.jianshu.com/p/3334467e4b32</a></li>
 <li><a href="https://github.com/reactjs/redux/issues/601">https://github.com/reactjs/redux/issues/601</a></li>
 </ul>
-<h3 id="qfix"><a name="user-content-qfix" href="#qfix" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Q:如何实现一个登录页面的，底部fix的布局</h3>
-<p>flex 方式： debug有效，publish无效<br />
-postion: absolute, left/bottom 0</p>
-<h2 id="state"><a name="user-content-state" href="#state" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>state</h2>
-<pre><code class="js">{
-    login: {
-        username: '',
-        password: '',
-        isSigned: false,
-        fetching: false,
-    },
-    entities: {
-        users: {},
-        rooms: {},
-        groups: {}
+<h3 id="q-fix"><a name="user-content-q-fix" href="#q-fix" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Q: 如何实现一个登录页面的，底部fix的布局</h3>
+<ul>
+<li>flex 方式： debug有效 publish无效<ul>
+<li>父级 direction: column<ul>
+<li>自适应元素 flex：1</li>
+<li>定高元素</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>postion: absolute, left/bottom 0</li>
+</ul>
+<h3 id="q-ua"><a name="user-content-q-ua" href="#q-ua" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Q: ua 是什么</h3>
+<p>iOS debug 模式下的 ua： <code>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36</code></p>
+<h3 id="q-could-not-parse-the-simulator-list-output"><a name="user-content-q-could-not-parse-the-simulator-list-output" href="#q-could-not-parse-the-simulator-list-output" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Q: Could not parse the simulator list output</h3>
+<h3 id="q-error-ignoring-return-value-of-function-declared-with-warn_unused_result-attribute"><a name="user-content-q-error-ignoring-return-value-of-function-declared-with-warn_unused_result-attribute" href="#q-error-ignoring-return-value-of-function-declared-with-warn_unused_result-attribute" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Q: Error: ignoring return value of function declared with warn_unused_result attribute</h3>
+<ul>
+<li><a href="https://github.com/facebook/react-native/issues/8584">https://github.com/facebook/react-native/issues/8584</a></li>
+</ul>
+<h4 id="q-debug-release"><a name="user-content-q-debug-release" href="#q-debug-release" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Q: debug正常 release 打包失败</h4>
+<p>babel的配置可以在production时去掉console，但是此配置会导致release打包失败，原因暂未知<br />
+<div class="codehilite"><pre> .babelrc
+    &quot;production&quot;: {
+      &quot;plugins&quot;: [
+        &quot;transform-remove-console&quot;
+      ]
     }
-}
-</code></pre></article></body></html>
+</pre></div>
+</p>
+<h2 id="redux-state"><a name="user-content-redux-state" href="#redux-state" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Redux State</h2>
+<ol>
+<li>state<ul>
+<li>ui<ul>
+<li>作为页面数据相关存储<ul>
+<li>common 控制公共的loading</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>entities<ul>
+<li>作为数据实体相关存储</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>redux</p>
+<ul>
+<li>Roster<ul>
+<li>updateRoster</li>
+<li>[a]addContact</li>
+<li>[a]removeContact</li>
+<li>[a]getContacts</li>
+</ul>
+</li>
+<li>Subscribe<ul>
+<li>addSubscribe</li>
+<li>removeSubscribe</li>
+<li>[a]acceptSubscribe</li>
+<li>[a]declineSubscribe</li>
+</ul>
+</li>
+<li>ContactInfoScreen<ul>
+<li>contactDeleted</li>
+<li>contactShowed</li>
+</ul>
+</li>
+<li>CommonRedux<ul>
+<li>fetching</li>
+<li>fetched</li>
+</ul>
+</li>
+<li>Login<ul>
+<li>登陆和注册融合版，需要重构</li>
+</ul>
+</li>
+<li>WebIM<ul>
+<li>logout</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>add / update / remove 跟根目录融合组成作为state关键字，不要用于异步请求</p>
+<ul>
+<li>如RosterRedux:   addRoster -&gt; ADD_ROSTER （注意ROSTER不要省略，log可以用过action清楚分辨操作)</li>
+</ul>
+</li>
+</ol>
+<div class="codehilite"><pre><span class="p">{</span>
+    <span class="nx">ui</span><span class="o">:</span> <span class="p">[</span>
+        <span class="nx">common</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">fetching</span><span class="o">:</span><span class="kc">false</span>
+        <span class="p">},</span>
+        <span class="nx">login</span><span class="o">:</span> <span class="p">{</span> <span class="p">}</span>
+        <span class="nx">register</span><span class="o">:</span> <span class="p">{</span> <span class="p">},</span>
+        <span class="nx">contactInfo</span><span class="o">:</span> <span class="p">{</span> <span class="p">},</span>
+    <span class="p">],</span>
+    <span class="nx">im</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">],</span>
+    <span class="nx">user</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">username</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="nx">password</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="nx">isSigned</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="nx">entities</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">roster</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">byName</span><span class="o">:</span> <span class="p">{</span>
+                <span class="p">{</span>
+                    <span class="nx">jid</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">subscription</span><span class="p">,</span> <span class="nx">groups</span><span class="o">?</span>
+                <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="nx">names</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;lwz2&#39;</span><span class="p">...],</span>
+            <span class="c1">// 好友列表在此，因为好友列表来源于roster，息息相关</span>
+            <span class="nx">friends</span><span class="o">:</span> <span class="p">[],</span>
+        <span class="p">},</span>
+        <span class="c1">// 订阅通知</span>
+        <span class="nx">subscribe</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">byFrom</span><span class="o">:</span> <span class="p">{}</span>
+        <span class="p">},</span>
+        <span class="nx">room</span><span class="o">:</span> <span class="p">{},</span>
+        <span class="nx">group</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">byId</span><span class="o">:</span> <span class="p">{},</span>
+            <span class="nx">names</span><span class="o">:</span> <span class="p">[]</span>
+        <span class="p">},</span>
+        <span class="nx">members</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">byName</span><span class="o">:</span> <span class="p">[],</span>
+            <span class="nx">byGroupId</span><span class="o">:</span> <span class="p">[]</span>
+        <span class="p">}</span>
+        <span class="nx">blacklist</span><span class="o">:</span> <span class="p">{},</span>
+        <span class="nx">message</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">byId</span><span class="o">:</span> <span class="p">{}</span>
+            <span class="nx">chat</span><span class="o">:</span> <span class="p">{</span>
+                <span class="p">[</span><span class="nx">chatId</span><span class="p">]</span><span class="o">:</span> <span class="p">[</span><span class="nx">messageId1</span><span class="p">,</span> <span class="nx">messageId2</span><span class="p">]</span>
+            <span class="p">},</span>
+            <span class="nx">groupChat</span><span class="o">:</span> <span class="p">{</span>
+                <span class="p">[</span><span class="nx">chatId</span><span class="p">]</span><span class="o">:</span> <span class="p">{}</span>
+            <span class="p">},</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h2 id="_5"><a name="user-content-_5" href="#_5" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>知识点</h2>
+<h3 id="listview"><a name="user-content-listview" href="#listview" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>ListView</h3>
+<ul>
+<li>dataSouce</li>
+</ul>
+<h4 id="scrollview"><a name="user-content-scrollview" href="#scrollview" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>与ScrollView的区别？</h4>
+<p><code>ListView</code> 只渲染展示的元素，而不是一次展示所有的元素</p>
+<h4 id="listview-scrollview-row-ios"><a name="user-content-listview-scrollview-row-ios" href="#listview-scrollview-row-ios" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>ListView -&gt; ScrollView row不居顶部 （ios）</h4>
+<p><code>automaticallyAdjustContentInsets={false}</code></p>
+<p>Controls whether iOS should automatically adjust the content inset for scroll views that are placed behind a navigation bar or tab bar/ toolbar. The default value is true.</p>
+<p><code>ScrollView</code> 需要动态设置宽度</p>
+<h4 id="scrollview-onscroll"><a name="user-content-scrollview-onscroll" href="#scrollview-onscroll" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>ScrollView onScroll</h4>
+<div class="codehilite"><pre><span class="nx">onScroll</span><span class="o">=</span><span class="p">{(</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">,</span> <span class="nx">e</span><span class="p">.</span><span class="nx">nativeEvent</span><span class="p">.</span><span class="nx">contentOffset</span><span class="p">)</span>
+<span class="p">}}</span>
+<span class="nx">scrollEventThrottle</span><span class="o">=</span><span class="p">{</span><span class="mi">10</span><span class="p">}</span>
+</pre></div>
+
+
+<h4 id="swipeablelistview"><a name="user-content-swipeablelistview" href="#swipeablelistview" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>swipeablelistview</h4>
+<p><a href="https://github.com/facebook/react-native/commit/381a0051c7ec5bde4c35967e336050c8dca6a677">https://github.com/facebook/react-native/commit/381a0051c7ec5bde4c35967e336050c8dca6a677</a></p>
+<h3 id="buttonjs"><a name="user-content-buttonjs" href="#buttonjs" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Button.js</h3>
+<p><a href="https://github.com/facebook/react-native/blob/master/Libraries/Components/Button.js">https://github.com/facebook/react-native/blob/master/Libraries/Components/Button.js</a></p>
+<h4 id="_6"><a name="user-content-_6" href="#_6" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>参考</h4>
+<ul>
+<li><a href="https://facebook.github.io/react-native/docs/using-a-listview.html">https://facebook.github.io/react-native/docs/using-a-listview.html</a></li>
+<li><a href="https://facebook.github.io/react-native/docs/listview.html">https://facebook.github.io/react-native/docs/listview.html</a></li>
+<li><a href="https://facebook.github.io/react-native/docs/refreshcontrol.html">https://facebook.github.io/react-native/docs/refreshcontrol.html</a></li>
+</ul>
+<h3 id="react-native"><a name="user-content-react-native" href="#react-native" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>携程是如何做React Native优化的</h3>
+<ul>
+<li><a href="https://www.sdk.cn/news/5913">https://www.sdk.cn/news/5913</a></li>
+</ul>
+<h3 id="react-native-meetup"><a name="user-content-react-native-meetup" href="#react-native-meetup" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>react native meetup</h3>
+<ul>
+<li><a href="http://www.lcode.org/react-native-meetup-share/">http://www.lcode.org/react-native-meetup-share/</a></li>
+</ul>
+<h3 id="_7"><a name="user-content-_7" href="#_7" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>核心概念</h3>
+<ul>
+<li><a href="http://reactnative.cn/docs/0.37/integration-with-existing-apps.html#content">http://reactnative.cn/docs/0.37/integration-with-existing-apps.html#content</a></li>
+</ul>
+<h3 id="_8"><a name="user-content-_8" href="#_8" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>与现有的应用程序集成</h3>
+<ul>
+<li><a href="http://wiki.jikexueyuan.com/project/react-native/integration-existing.html">http://wiki.jikexueyuan.com/project/react-native/integration-existing.html</a></li>
+</ul>
+<h3 id="ui"><a name="user-content-ui" href="#ui" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>原生UI组件</h3>
+<ul>
+<li><a href="http://reactnative.cn/docs/0.37/native-component-ios.html">http://reactnative.cn/docs/0.37/native-component-ios.html</a></li>
+</ul>
+<h3 id="react-native_1"><a name="user-content-react-native_1" href="#react-native_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>在原生和React Native间通信</h3>
+<ul>
+<li><a href="http://reactnative.cn/docs/0.37/communication-ios.html">http://reactnative.cn/docs/0.37/communication-ios.html</a></li>
+</ul>
+<h3 id="proptypes"><a name="user-content-proptypes" href="#proptypes" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>PropTypes</h3>
+<ul>
+<li><a href="https://facebook.github.io/react/docs/typechecking-with-proptypes.html">https://facebook.github.io/react/docs/typechecking-with-proptypes.html</a></li>
+</ul>
+<h3 id="axioslibutilsjs"><a name="user-content-axioslibutilsjs" href="#axioslibutilsjs" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>axios/lib/utils.js</h3>
+<ul>
+<li><a href="https://github.com/mzabriskie/axios/issues/554">https://github.com/mzabriskie/axios/issues/554</a></li>
+</ul>
+<div class="codehilite"><pre><span class="kd">function</span> <span class="nx">isStandardBrowserEnv</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="kc">false</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="k">typeof</span> <span class="nb">window</span> <span class="o">!==</span> <span class="s1">&#39;undefined&#39;</span> <span class="o">&amp;&amp;</span>
+    <span class="k">typeof</span> <span class="nb">document</span> <span class="o">!==</span> <span class="s1">&#39;undefined&#39;</span> <span class="o">&amp;&amp;</span>
+    <span class="k">typeof</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span> <span class="o">===</span> <span class="s1">&#39;function&#39;</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h3 id="http"><a name="user-content-http" href="#http" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>http上传文件</h3>
+<div class="codehilite"><pre><span class="kd">let</span> <span class="nx">formData</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FormData</span><span class="p">()</span>
+<span class="nx">formData</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;file&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">uri</span><span class="o">:</span> <span class="nx">response</span><span class="p">.</span><span class="nx">uri</span><span class="p">,</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;application/octet-stream&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;test.jpg&#39;</span>
+<span class="p">})</span>
+
+<span class="kd">var</span> <span class="nx">msg</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WebIM</span><span class="p">.</span><span class="nx">message</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">,</span> <span class="nx">WebIM</span><span class="p">.</span><span class="nx">conn</span><span class="p">.</span><span class="nx">getUniqueId</span><span class="p">());</span>
+<span class="nx">msg</span><span class="p">.</span><span class="nx">set</span><span class="p">({</span>
+    <span class="nx">apiUrl</span><span class="o">:</span> <span class="nx">WebIM</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">apiURL</span><span class="p">,</span>
+    <span class="nx">file</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">url</span><span class="o">:</span> <span class="nx">source</span><span class="p">.</span><span class="nx">uri</span><span class="p">,</span>
+      <span class="nx">filename</span><span class="o">:</span> <span class="nx">response</span><span class="p">.</span><span class="nx">fileName</span><span class="p">,</span>
+      <span class="nx">filetype</span><span class="o">:</span> <span class="s1">&#39;jpg&#39;</span><span class="p">,</span>
+      <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">uri</span><span class="o">:</span> <span class="nx">response</span><span class="p">.</span><span class="nx">uri</span><span class="p">,</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;application/octet-stream&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;test.jpg&#39;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+
+
+<h3 id="_9"><a name="user-content-_9" href="#_9" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>聊天框中图片的自适应，两种方式</h3>
+<ol>
+<li>api提供款高比</li>
+<li>或者通过<code>Image</code>的预加载函数，加载完成后获取宽高比</li>
+</ol>
+<p>本项目采用方式一，发送图片时即提供图片的宽高</p>
+<h3 id="http_1"><a name="user-content-http_1" href="#http_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>http上传文件原理</h3>
+<ul>
+<li>http流</li>
+<li><a href="https://zh.wikipedia.org/wiki/%E5%AD%97%E7%AF%80%E6%B5%81">https://zh.wikipedia.org/wiki/%E5%AD%97%E7%AF%80%E6%B5%81</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E4%BA%92%E8%81%94%E7%BD%91%E5%AA%92%E4%BD%93%E7%B1%BB%E5%9E%8B#Type_application">https://zh.wikipedia.org/wiki/%E4%BA%92%E8%81%94%E7%BD%91%E5%AA%92%E4%BD%93%E7%B1%BB%E5%9E%8B#Type_application</a></li>
+</ul>
+<h3 id="_10"><a name="user-content-_10" href="#_10" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>键盘事件时需要调整页面布局</h3>
+<p>需要监听键盘布局，键盘出现时候需要动态调整页面的高度 参考 MessageScreen</p></article></body></html>

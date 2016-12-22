@@ -1,17 +1,16 @@
 [TOC]
 
-# React Native and Strophe for real-time Apps
+# React Native and Strophe for real-time Apps @ 环信
 
-## 业务场景
+## 协议
 
-> im 实时聊天
-
-- rest
-- msync
+- http
+	- rest api 主要用户登陆
+- xmpp
+	- websocket 用于实时通信部分
+- msync（此版本不涉及）
 	- protobuf
 	- 基于tcp的socket
-- xmpp
-	- websocket
 
 ## 知识点
 
@@ -28,7 +27,6 @@
 	- [Redux 官方文档](http://cn.redux.js.org/docs/)
 - demo（了解）
 	- [ignite](https://github.com/infinitered/ignite)
-		- iPhone6 (ios 8.1) 会crash，启动时需要切换模拟器版本
 	- [f8app](http://makeitopen.com/)
 	- [f8app 中文解析](https://f8-app.liaohuqiu.net/tutorials/building-the-f8-app/data/)
 - 工具
@@ -36,22 +34,6 @@
 		- ide 提供一些可视化便捷操作，及动态添加插件的功能，不过插件并不完整
 	- [Reactotron](https://github.com/reactotron/reactotron/blob/master/docs/quick-start-react-native.md) （了解）
 		- debug 工具，提供时间旅行的功能，日志记录（日志可以直接使用native自带的debug工具）
-- 模块及自动化
-	- npm 发布及本地调试（掌握）
-		- [版本规范](http://semver.org/lang/zh-CN/)
-		- [easemob-websdk 模块](https://www.npmjs.com/package/easemob-websdk)
-		- [npm解析 by runyf](http://javascript.ruanyifeng.com/nodejs/npm.html)
-			- 关注link用法
-	- webpack（了解）
-		- [umd](https://webpack.github.io/docs/library-and-externals.html)
-		- [webpack-stream 模块](https://www.npmjs.com/package/webpack-stream)
-		- [webpack with gulp](https://webpack.github.io/docs/usage-with-gulp.html)
-	- gulp（了解） grunt
-		- [用法简介](http://www.cnblogs.com/2050/p/4198792.html)
-		- [官方文档](http://www.gulpjs.com.cn/docs/api/)
-		- [browserify with gulp](http://www.gulpjs.com.cn/docs/recipes/browserify-uglify-sourcemap/)
-	- bower（了解）
-	- browserify（了解） 浏览器化
 
 ## 选型
 
@@ -67,28 +49,20 @@
 	- 赋予时间旅行的功能
 - redux	yes
 	- 代码复用，状态的高效维护 必备
-	- https://github.com/verekia/js-stack-from-scratch/tree/master/tutorial/10-immutable-redux-improvements
-	- http://cn.redux.js.org/docs/advanced/AsyncActions.html
-	- http://www.jianshu.com/p/3334467e4b32
-	- http://div.io/topic/1309
-- 依赖模块
-	- redux
-	- react-redux
-	- react-native-i18n
-	- react-native-preseit 持久化 支持native和web
-	- [redux-thunk](https://github.com/gaearon/redux-thunk)
-	- [redux-logger](https://github.com/evgenyrodionov/redux-logger)
-	- flow 考虑到编码习惯和web的兼容性，暂不启用 no
-	- react-timer-mixin
+- 依赖模块 见`package.json`
 
 ## IDE
 
-1. atom
-	- synax: javascript with jsx
+> 建议webstorm，其他ide多少都有性能或功能的问题
+
+- webstorm
+	- plugin 代码提示
+		- [ReactNative-LiveTemplate](https://github.com/virtoolswebplayer/ReactNative-LiveTemplate)
+		- [react-templates](https://github.com/wix/react-templates)
 
 ## Todo and Flow
 
-1. 目录
+1. 主要目录
 	- App
 		- Containers 容器 | 页面 | 路由
 			- App.js 总入口
@@ -96,20 +70,19 @@
 				- I18n/ 初始化
 				- Config/index.js 系统初始配置
 			- RootContainer.js  根容器
-				- StatusBar 系统默认状态条
 				- Navigation/NavigationRouter.js 初始化路由
-				- /Redux/StartupRedux
 				- /Config/ReduxPersist 持久化初始化
+		- Components 常用组件
+		- I18n 多语言支持
+		- Images 图片资源
+		- Lib WebIM初始化
+		- Navigation 路由相关
+		- Redux actions / reducers
+		- Sdk webim-easemobo SDK
 1. 设计及素材
 	- zeplin
-1. 通信
-	- xmpp: im sdk
-	- http with promise:  fetch 自带
 1. todo
-	- 未开启debug情况下，locaiton不存在，需要兼容
 	- https的问题
-	- window和docu的问题
-	- link的方式android也会打包失败，所以迁移到项目内部维护  done
 	- splash 开机过渡动画 no
 		- [react-native-svg 背景渐变](https://github.com/react-native-community/react-native-svg) todo
 		- [react-native-svg 中文](https://segmentfault.com/a/1190000004422456) todo
@@ -117,9 +90,9 @@
 		- [react-native-splash-screen](https://github.com/crazycodeboy/react-native-splash-screen)
 	- 热加载
 		- react-native-code-push
-	- WebIM
-		- 版本支持 纯浏览器和模块化
-		-
+	- https://github.com/marcshilling/react-native-image-picker
+		- 只添加了ios的依赖，android并没有添加
+		- 直接通过xcode编译的debug模式编译是能测试的，但是run-ios无效，即使 react-native link也无效
 
 
 ## Android debug and publish
@@ -240,6 +213,8 @@ A: 尝试删除已经安装的app
 	- 信任证书：ios设备 -> General -> Device Management ->  persion Certificate -> trust it
 	- 成功运行后，如果是debug模式可以晃动手机调出控制台
 
+	如果编译不生效 ，先clean，然后run-ios引入图片
+
 - [Signing for requires a development team](https://github.com/CocoaPods/CocoaPo ds/issues/5531)
 - [Running On Device](https://facebook.github.io/react-native/docs/running-on-device-ios.html)
 
@@ -285,6 +260,8 @@ Debug remote 和 Hot loading 同时开启
 ### Q: react native and strophe
 
 > no document / no window ? how to make strophe work
+
+react-native 有全局window，但是不同浏览器端的window，没有document、location等，由于strophe是基于浏览器版本的, 需要自己兼容
 
 ```js
 // 解决 strophe 对 DOMParser 的依赖
@@ -389,22 +366,107 @@ iOS debug 模式下的 ua： `Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) Ap
 
 ### Q: Could not parse the simulator list output
 
+### Q: Error: ignoring return value of function declared with warn_unused_result attribute
+
+- https://github.com/facebook/react-native/issues/8584
 
 
+
+#### Q: debug正常 release 打包失败
+
+babel的配置可以在production时去掉console，但是此配置会导致release打包失败，原因暂未知
+```
+ .babelrc
+    "production": {
+      "plugins": [
+        "transform-remove-console"
+      ]
+    }
+```
 ## Redux State
+1. state
+	- ui
+	 	- 作为页面数据相关存储
+	 		- common 控制公共的loading
+	- entities
+		- 作为数据实体相关存储
+1. redux
+	- Roster
+		- updateRoster
+		- [a]addContact
+		- [a]removeContact
+		- [a]getContacts
+	- Subscribe
+		- addSubscribe
+		- removeSubscribe
+		- [a]acceptSubscribe
+		- [a]declineSubscribe
+	- ContactInfoScreen
+		- contactDeleted
+		- contactShowed
+	- CommonRedux
+		- fetching
+		- fetched
+	- Login
+		- 登陆和注册融合版，需要重构
+	- WebIM
+		- logout
+
+1. add / update / remove 跟根目录融合组成作为state关键字，不要用于异步请求
+	- 如RosterRedux:   addRoster -> ADD_ROSTER （注意ROSTER不要省略，log可以用过action清楚分辨操作)
+
 
 ```js
 {
-	login: {
+	ui: [
+		common: {
+			fetching:false
+		},
+		login: { }
+		register: { },
+		contactInfo: { },
+	],
+	im: [
+	],
+	user: {
 		username: '',
 		password: '',
 		isSigned: false,
-		fetching: false,
 	},
 	entities: {
-		users: {},
-		rooms: {},
-		groups: {}
+		roster: {
+			byName: {
+				{
+					jid, name, subscription, groups?
+				}
+			},
+			names: ['lwz2'...],
+			// 好友列表在此，因为好友列表来源于roster，息息相关
+			friends: [],
+		},
+		// 订阅通知
+		subscribe: {
+			byFrom: {}
+		},
+		room: {},
+		group: {
+			byId: {},
+			names: []
+		},
+		members: {
+			byName: [],
+			byGroupId: []
+		}
+		blacklist: {},
+		message: {
+			byId: {}
+			chat: {
+				[chatId]: [messageId1, messageId2]
+			},
+			groupChat: {
+				[chatId]: {}
+			},
+		}
 	}
 }
 ```
@@ -419,12 +481,37 @@ iOS debug 模式下的 ua： `Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) Ap
 
 `ListView` 只渲染展示的元素，而不是一次展示所有的元素
 
-####
+####  ListView -> ScrollView row不居顶部 （ios）
+
+`automaticallyAdjustContentInsets={false} `
+
+Controls whether iOS should automatically adjust the content inset for scroll views that are placed behind a navigation bar or tab bar/ toolbar. The default value is true.
+
+`ScrollView` 需要动态设置宽度
+
+#### ScrollView onScroll
+
+```js
+onScroll={(e) => {
+	console.log(e, e.nativeEvent.contentOffset)
+}}
+scrollEventThrottle={10}
+
+```
+
+#### swipeablelistview
+
+https://github.com/facebook/react-native/commit/381a0051c7ec5bde4c35967e336050c8dca6a677
+
+### Button.js
+
+https://github.com/facebook/react-native/blob/master/Libraries/Components/Button.js
+
+#### 参考
 
 - https://facebook.github.io/react-native/docs/using-a-listview.html
 - https://facebook.github.io/react-native/docs/listview.html
 - https://facebook.github.io/react-native/docs/refreshcontrol.html
-
 
 ### 携程是如何做React Native优化的
 
@@ -434,15 +521,77 @@ iOS debug 模式下的 ua： `Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) Ap
 
 - http://www.lcode.org/react-native-meetup-share/
 
+### 核心概念
 
+- http://reactnative.cn/docs/0.37/integration-with-existing-apps.html#content
 
+### 与现有的应用程序集成
 
+- http://wiki.jikexueyuan.com/project/react-native/integration-existing.html
 
+### 原生UI组件
 
+- http://reactnative.cn/docs/0.37/native-component-ios.html
 
+### 在原生和React Native间通信
 
+- http://reactnative.cn/docs/0.37/communication-ios.html
 
+### PropTypes
 
+- https://facebook.github.io/react/docs/typechecking-with-proptypes.html
 
+### axios/lib/utils.js
 
+- https://github.com/mzabriskie/axios/issues/554
+
+```js
+function isStandardBrowserEnv() {
+  return false
+  return (
+    typeof window !== 'undefined' &&
+    typeof document !== 'undefined' &&
+    typeof document.createElement === 'function'
+  );
+}
+```
+
+### http上传文件
+
+```js
+let formData = new FormData()
+formData.append('file', {
+	uri: response.uri, type: 'application/octet-stream', name: 'test.jpg'
+})
+
+var msg = new WebIM.message('img', WebIM.conn.getUniqueId());
+msg.set({
+	apiUrl: WebIM.config.apiURL,
+	file: {
+	  url: source.uri,
+	  filename: response.fileName,
+	  filetype: 'jpg',
+	  data: {
+	    uri: response.uri, type: 'application/octet-stream', name: 'test.jpg'
+	  }
+	}
+})
+```
+
+### 聊天框中图片的自适应，两种方式
+
+1. api提供款高比
+1. 或者通过`Image`的预加载函数，加载完成后获取宽高比
+
+本项目采用方式一，发送图片时即提供图片的宽高
+
+### http上传文件原理
+
+- http流
+ - https://zh.wikipedia.org/wiki/%E5%AD%97%E7%AF%80%E6%B5%81
+ - https://zh.wikipedia.org/wiki/%E4%BA%92%E8%81%94%E7%BD%91%E5%AA%92%E4%BD%93%E7%B1%BB%E5%9E%8B#Type_application
+
+### 键盘事件时需要调整页面布局
+
+ 需要监听键盘布局，键盘出现时候需要动态调整页面的高度 参考 MessageScreen
 
