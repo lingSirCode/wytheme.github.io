@@ -93,6 +93,9 @@
 	- https://github.com/marcshilling/react-native-image-picker
 		- 只添加了ios的依赖，android并没有添加
 		- 直接通过xcode编译的debug模式编译是能测试的，但是run-ios无效，即使 react-native link也无效
+	- webrtc
+		- https://webrtchacks.com/reacting-to-react-native-for-native-webrtc-apps-alexey-aylarov/
+		- https://github.com/oney/react-native-webrtc
 
 
 ## Android debug and publish
@@ -503,15 +506,16 @@ scrollEventThrottle={10}
 
 https://github.com/facebook/react-native/commit/381a0051c7ec5bde4c35967e336050c8dca6a677
 
-### Button.js
-
-https://github.com/facebook/react-native/blob/master/Libraries/Components/Button.js
 
 #### 参考
 
 - https://facebook.github.io/react-native/docs/using-a-listview.html
 - https://facebook.github.io/react-native/docs/listview.html
 - https://facebook.github.io/react-native/docs/refreshcontrol.html
+
+### Button.js
+
+https://github.com/facebook/react-native/blob/master/Libraries/Components/Button.js
 
 ### 携程是如何做React Native优化的
 
@@ -595,3 +599,29 @@ msg.set({
 
  需要监听键盘布局，键盘出现时候需要动态调整页面的高度 参考 MessageScreen
 
+ - ios 用keyboardWillShow/Hide 会更快捷，但是android下面无效
+ - ios 下面键盘是不会压缩视口的高度，但是android 会压缩，所以适配时需要区别对待，大多数情况下，android不需要处理
+
+### ios 和 android 一些布局的注意点
+- android: flexDirection: column 要写
+- android: alignSelf 需要搭配使用，ios则不需要
+
+### 顶部状态条
+
+- infobar 规则不同
+	- ios 布局需要考虑剔除infobar的高度
+	- android不需要考虑，statusbar不在布局当中
+
+### signatures do not match the previously installed version
+
+重复签名修改配置文件导致的, 连接设备后执行下面命令
+
+- `adb uninstall "com.yourapp.yourapp"`
+
+### 修改android包信息 logo / 名称 等
+
+- http://reactnative.cn/post/651
+
+### TouchableHighlight 的问题
+
+- TouchableOpacity 替换 TouchableHighlight， TouchableHighlight 无效而且长按会报错
