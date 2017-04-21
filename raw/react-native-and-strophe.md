@@ -96,6 +96,14 @@
 	- webrtc
 		- https://webrtchacks.com/reacting-to-react-native-for-native-webrtc-apps-alexey-aylarov/
 		- https://github.com/oney/react-native-webrtc
+	- ajax 异步回调的问题
+	- 退出账号redux信息销毁问题
+	- 点击多次调起相机和照片会崩溃的问题
+	- 图片预加载动画、缩略图、缓存、预览
+	- 弱网环境
+	- 音视频
+	 - webrtc
+
 
 
 ## Android debug and publish
@@ -625,3 +633,7 @@ msg.set({
 ### TouchableHighlight 的问题
 
 - TouchableOpacity 替换 TouchableHighlight， TouchableHighlight 无效而且长按会报错
+
+
+
+
